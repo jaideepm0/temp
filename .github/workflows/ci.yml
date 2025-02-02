@@ -1,0 +1,23 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Run a sample script
+        run: echo "Hello, GitHub Actions!"
+
+      - name: Send notification to 23f2001992@ds.study.iitm.ac.in
+        run: echo "This step contains your email: 23f2001992@ds.study.iitm.ac.in"
