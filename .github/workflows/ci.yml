@@ -19,5 +19,27 @@ jobs:
       - name: Run a sample script
         run: echo "Hello, GitHub Actions!"
 
-      - name: Send notification to 23f2001992@ds.study.iitm.ac.in
+      - name: "Send notification to 23f2001992@ds.study.iitm.ac.in"
         run: echo "This step contains your email: 23f2001992@ds.study.iitm.ac.in"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
