@@ -16,9 +16,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Run a sample script
-        run: echo "Hello, GitHub Actions!"
-
       - name: "23f2001992"
         run: echo "email: 23f2001992@ds.study.iitm.ac.in"
 
