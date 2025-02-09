@@ -1,16 +1,28 @@
-name: Test Action
+name: Daily Commit
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: "30 2 * * *"  # Runs every day at 02:30 UTC
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
-  test:
+  commit-job:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allows pushing changes
+
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: 23f2001992@ds.study.iitm.ac.in
-        run: echo "Hello, world!"
+      - name: Make Changes (23f2001992@ds.study.iitm.ac.in)
+        run: |
+          echo "Last run: $(date -u)" > last_run.txt
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add last_run.txt
+          git commit -m "Automated daily update: $(date -u)" || exit 0
+          git push
